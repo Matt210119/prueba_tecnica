@@ -1,3 +1,5 @@
+-- POSTGRESQL
+
 -- CREATE DATABASE banco_db;
 -- Database: banco_db
 
