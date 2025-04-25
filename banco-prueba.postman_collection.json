@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "5f4c0402-1ee1-43c5-9383-e9324e429cd5",
+		"name": "banco-prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15640886"
+	},
+	"item": [
+		{
+			"name": "transacciones",
+			"item": [
+				{
+					"name": "transaccion-completa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuentaOrdenanteId\": 2,\r\n  \"cuentaBeneficiarioId\": 3,\r\n  \"valor\": 50.00,\r\n  \"referencia\": \"Transferencia entre cuentas\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/transacciones/procesar-transaccion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transacciones",
+								"procesar-transaccion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "monto-excedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuentaOrdenanteId\": 2,\r\n  \"cuentaBeneficiarioId\": 3,\r\n  \"valor\": 150.00,\r\n  \"referencia\": \"Transferencia entre cuentas\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/transacciones/procesar-transaccion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transacciones",
+								"procesar-transaccion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cuenta-sin-fondos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuentaOrdenanteId\": 4,\r\n  \"cuentaBeneficiarioId\": 3,\r\n  \"valor\": 50.00,\r\n  \"referencia\": \"Transferencia entre cuentas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/transacciones/procesar-transaccion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transacciones",
+								"procesar-transaccion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "validar-cuenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cuentas/cuentavalidada?numeroCuenta=13289456000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cuentas",
+						"cuentavalidada"
+					],
+					"query": [
+						{
+							"key": "numeroCuenta",
+							"value": "13289456000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
