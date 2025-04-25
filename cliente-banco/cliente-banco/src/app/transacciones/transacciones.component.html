@@ -1,0 +1,18 @@
+<h2>Procesar Transacción</h2>
+
+<form (ngSubmit)="enviar()" #f="ngForm">
+  <label>ID Ordenante: <input type="number" [(ngModel)]="request.cuentaOrdenanteId" name="ordenante" required /></label><br />
+  <label>ID Beneficiario: <input type="number" [(ngModel)]="request.cuentaBeneficiarioId" name="beneficiario" required /></label><br />
+  <label>Valor: <input type="number" step="0.01" [(ngModel)]="request.valor" name="valor" required /></label><br />
+  <label>Referencia: <input type="text" [(ngModel)]="request.referencia" name="referencia" required /></label><br />
+  <button type="submit">Enviar</button>
+</form>
+
+<div *ngIf="respuesta">
+  <h3>Respuesta:</h3>
+  <pre>{{ respuesta | json }}</pre>
+</div>
+
+<div *ngIf="error" style="color:red;">
+  <strong>Error:</strong> {{ error }}
+</div>
